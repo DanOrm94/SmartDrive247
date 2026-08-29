@@ -1,14 +1,32 @@
 @import "tailwindcss";
 
-/* Supplied Smart Drive logo — !important prevents the hero component's scoped background shorthand from replacing the image. */
+/* Supplied Smart Drive logo — keep the hero visual fully inside the viewport. */
 .car-placeholder {
-  background-image: linear-gradient(rgba(8, 10, 12, 0.08), rgba(8, 10, 12, 0.18)), url('/images/smartdrivelogo.jpg') !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 50% !important;
+  height: 100% !important;
+  transform: none !important;
+  background-image: linear-gradient(rgba(8, 10, 12, 0.04), rgba(8, 10, 12, 0.18)), url('/images/smartdrivelogo.jpg') !important;
   background-size: contain !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-color: #0b0d0f !important;
+  overflow: hidden;
 }
 
 .car-placeholder span {
   display: none !important;
+}
+
+@media (max-width: 620px) {
+  .car-placeholder {
+    right: 0 !important;
+    left: 0 !important;
+    top: auto !important;
+    bottom: 6% !important;
+    width: 100% !important;
+    height: 42% !important;
+  }
 }
