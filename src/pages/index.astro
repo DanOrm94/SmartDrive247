@@ -22,12 +22,6 @@ const trust = [
   ['06', 'Fair, transparent pricing', 'Premium service without the premium theatre. Straightforward quotes and no guesswork.'],
 ];
 
-const fleet = [
-  { tag: 'EXECUTIVE', name: 'Vehicle One', spec: 'Placeholder · 4 passengers · 3 luggage', image: '/images/vehicle-1.svg' },
-  { tag: 'EXECUTIVE', name: 'Vehicle Two', spec: 'Placeholder · 4 passengers · 3 luggage', image: '/images/vehicle-2.svg' },
-  { tag: 'PREMIUM', name: 'Vehicle Three', spec: 'Placeholder · 4–5 passengers · luggage', image: '/images/vehicle-3.svg' },
-];
-
 const testimonials = [
   { quote: '“Placeholder review — replace with a real Google or Instagram review.”', person: 'Client Name', meta: 'Private client · Manchester' },
   { quote: '“Placeholder review — ideal for the confident, polished tone you want to establish.”', person: 'Client Name', meta: 'Business traveller · Greater Manchester' },
@@ -62,7 +56,6 @@ const localBusinessJson = {
       <nav aria-label="Primary navigation" class="nav-links">
         <a href="#services">Services</a>
         <a href="#why-us">Why us</a>
-        <a href="#fleet">Fleet</a>
         <a href="#reviews">Reviews</a>
         <a href="#quote">Contact</a>
       </nav>
@@ -142,17 +135,6 @@ const localBusinessJson = {
       </div>
     </section>
 
-    <section id="fleet" class="section section-surface">
-      <div class="container">
-        <div class="section-heading split-heading"><div><p class="eyebrow">The fleet</p><h2>Smart cars, <em>properly presented.</em></h2></div><p>Placeholder fleet showcase. Swap these illustrations for your real vehicle photography and exact specifications.</p></div>
-        <div class="fleet-grid">
-          {fleet.map((car) => (
-            <article class="fleet-card"><div class="fleet-image"><img src={car.image} alt={`${car.name} placeholder`} loading="lazy" width="900" height="600" /></div><div class="fleet-meta"><span>{car.tag}</span><h3>{car.name}</h3><p>{car.spec}</p></div></article>
-          ))}
-        </div>
-      </div>
-    </section>
-
     <section id="reviews" class="section reviews-section">
       <div class="container">
         <div class="section-heading split-heading"><div><p class="eyebrow">Client words</p><h2>Built on repeat <em>trust.</em></h2></div><p>Testimonials are structured as an easy-to-swap array in the page source. Replace the placeholders with verified Google or Instagram reviews.</p></div>
@@ -223,10 +205,9 @@ const localBusinessJson = {
   .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.service-card{min-height:350px;padding:1.5rem;background:var(--bg-soft);position:relative;transition:transform .2s ease,background .2s ease}.service-card:hover{transform:translateY(-5px);background:#14181b}.service-number{color:#626970;font:600 .65rem 'Manrope',sans-serif;letter-spacing:.14em}.service-icon{position:absolute;right:1.3rem;top:1.3rem;color:var(--accent)}.service-card h3{font-size:1.45rem;margin:6rem 0 .8rem}.service-card p{color:var(--muted);line-height:1.65;font-size:.9rem}.text-link{display:inline-flex;gap:.6rem;margin-top:1.1rem;font-size:.8rem;font-weight:700;color:#ddd7ca}
   .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.trust-item{background:var(--bg);padding:1.6rem;display:grid;grid-template-columns:40px 1fr;gap:1rem;min-height:170px}.trust-item>span{color:var(--accent);font:700 .7rem 'Manrope',sans-serif}.trust-item h3{font-size:1.08rem;margin:0 0 .55rem}.trust-item p{margin:0;color:var(--muted);line-height:1.65;font-size:.86rem}
   .airport-section{background:linear-gradient(180deg,#111416,#0d1012)}.airport-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}.airport-visual{min-height:590px;border:1px solid var(--line);position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(184,162,119,.18),transparent 18%),linear-gradient(145deg,#252c31,#0b0d0f)}.airport-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(7,9,11,.96) 88%)}.airport-overlay{position:absolute;z-index:1;inset:auto 2rem 2rem;display:grid;gap:.65rem}.airport-overlay strong{font-size:clamp(2rem,4vw,4rem);line-height:.94}.visual-note{color:#727a81;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}.airport-copy h2{font-size:clamp(2.5rem,5vw,4.6rem);line-height:1;margin:0 0 1.3rem}.airport-copy>p{color:var(--muted);line-height:1.75;max-width:570px}.airport-points{display:grid;gap:.8rem;margin:2rem 0}.airport-points>div{display:grid;grid-template-columns:180px 1fr;gap:1rem;padding:.9rem 0;border-top:1px solid var(--line)}.airport-points strong{font-size:.85rem}.airport-points span{color:#8f969c;font-size:.82rem;line-height:1.55}
-  .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.fleet-card{background:#121619;border:1px solid var(--line)}.fleet-image{aspect-ratio:1.45;overflow:hidden;background:#161b1f}.fleet-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}.fleet-card:hover img{transform:scale(1.03)}.fleet-meta{padding:1.2rem 1.2rem 1.5rem}.fleet-meta span{color:var(--accent);font-size:.64rem;font-weight:800;letter-spacing:.14em}.fleet-meta h3{font-size:1.3rem;margin:.45rem 0}.fleet-meta p{margin:0;color:#818990;font-size:.82rem}
   .reviews-section{background:var(--bg-soft)}.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.review-card{margin:0;background:#121619;border:1px solid var(--line);padding:1.5rem;min-height:290px;display:flex;flex-direction:column;justify-content:space-between}.stars{letter-spacing:.16em;color:var(--accent);font-size:.8rem}.review-card blockquote{margin:2rem 0;font:600 1.15rem/1.5 'Manrope',sans-serif}.review-card figcaption{display:grid;gap:.15rem}.review-card figcaption strong{font-size:.83rem}.review-card figcaption span{font-size:.72rem;color:#737b82}
   .quote-section{background:#0b0d0f}.quote-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:5rem;align-items:start}.quote-copy h2{font-size:clamp(2.7rem,5vw,5rem);line-height:.95;margin:0 0 1.2rem}.quote-copy>p{max-width:480px;color:#9aa1a7;line-height:1.75}.quote-copy a{color:#d8c599}.instagram-link{display:inline-block;margin-top:1rem;font-size:.85rem;font-weight:700}.quote-contact{display:grid;gap:.65rem;margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--line);color:#848c93;font-size:.78rem}.quote-form{background:#121619;border:1px solid var(--line);padding:1.4rem}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.quote-form label{display:grid;gap:.45rem;margin-bottom:1rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:#92999f}.quote-form input,.quote-form textarea{width:100%;border:1px solid rgba(255,255,255,.1);background:#0d1012;color:var(--text);padding:.85rem .9rem;border-radius:.6rem;outline:none;text-transform:none;letter-spacing:normal}.quote-form input:focus,.quote-form textarea:focus{border-color:rgba(184,162,119,.7);box-shadow:0 0 0 2px rgba(184,162,119,.1)}.honeypot{display:none!important}.form-submit{border:none;cursor:pointer;width:100%}.form-submit:disabled{opacity:.6;cursor:wait}.form-status{min-height:1.3rem;color:#d7cfbd;font-size:.8rem;line-height:1.5}.form-note{margin:0;color:#626a71;font-size:.65rem;line-height:1.5}.cf-turnstile{margin:0 0 .9rem}
   .site-footer{border-top:1px solid var(--line);background:#090b0d;padding:4rem 0 1.4rem}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem}.footer-grid>div{display:grid;align-content:start;gap:.45rem}.footer-tag{color:#7b8389;font-size:.82rem;margin:1rem 0 0}.footer-label{color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-size:.62rem;font-weight:800;margin-bottom:.4rem}.footer-grid a,.footer-grid span:not(.footer-label){font-size:.76rem;color:#959ca2;line-height:1.5}.footer-bottom{margin-top:3.2rem;padding-top:1rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;color:#555d63;font-size:.65rem}
-  @media(max-width:1000px){.nav-links{display:none}.hero-grid{grid-template-columns:1fr}.hero-card{max-width:430px}.service-grid{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}.airport-grid,.quote-grid{grid-template-columns:1fr}.airport-visual{min-height:440px}.fleet-grid,.reviews-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:1000px){.nav-links{display:none}.hero-grid{grid-template-columns:1fr}.hero-card{max-width:430px}.service-grid{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}.airport-grid,.quote-grid{grid-template-columns:1fr}.airport-visual{min-height:440px}.reviews-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:620px){.site-header{position:fixed}.header-inner{height:67px}.header-actions .instagram{display:none}.cta-small{font-size:.68rem;padding:.65rem .75rem}.brand{font-size:.72rem}.section{padding:5.6rem 0}.split-heading{grid-template-columns:1fr;gap:1rem}.hero{min-height:760px;padding-top:7.6rem}.hero-grid{min-height:620px}.hero-copy h1{font-size:clamp(3rem,14vw,4.5rem)}.hero-card{margin-top:2rem}.service-grid,.trust-grid{grid-template-columns:1fr}.service-card{min-height:290px}.airport-points>div{grid-template-columns:1fr}.form-row{grid-template-columns:1fr;gap:0}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:.5rem}.car-placeholder{right:-35%;width:105vw;height:58%;bottom:8%}}
 </style>
