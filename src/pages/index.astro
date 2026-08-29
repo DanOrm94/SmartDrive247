@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const phone = '07762 253 656';
+const sms = `sms:${phone.replace(/\s/g, '')}`;
+const tel = `tel:${phone.replace(/\s/g, '')}`;
+const instagram = 'https://www.instagram.com/smartdrive247/';
+
+const services = [
+  { number: '01', title: 'Executive Transfers', text: 'Door-to-door travel for business and personal journeys, delivered with a calm, professional standard.' },
+  { number: '02', title: 'Private Hire', text: 'A dependable private driver for meetings, dinners, shopping, family travel and long-distance journeys.' },
+  { number: '03', title: 'Event Transport', text: 'Keep the group moving smoothly for conferences, weddings, celebrations, race days and special events.' },
+  { number: '04', title: 'Airport Transfers', text: 'Manchester Airport runs planned around your flight, with clear communication from pickup to drop-off.' },
+];
+
+const trust = [
+  ['01', 'Professional & discreet', 'A polished, respectful service designed around your time and privacy.'],
+  ['02', 'Punctual by design', 'Clear pickup details, practical planning and communication before the journey.'],
+  ['03', 'Licensed & insured', 'Placeholder trust signal — replace with your exact licensing / operator details.'],
+  ['04', 'Smart vehicles', 'Comfortable, well-presented vehicles chosen to match an executive standard.'],
+  ['05', '24/7 availability', 'Early flight, late event or business travel — enquiries are welcome around the clock.'],
+  ['06', 'Fair, transparent pricing', 'Premium service without the premium theatre. Straightforward quotes and no guesswork.'],
+];
+
+const fleet = [
+  { tag: 'EXECUTIVE', name: 'Vehicle One', spec: 'Placeholder · 4 passengers · 3 luggage', image: '/images/vehicle-1.svg' },
+  { tag: 'EXECUTIVE', name: 'Vehicle Two', spec: 'Placeholder · 4 passengers · 3 luggage', image: '/images/vehicle-2.svg' },
+  { tag: 'PREMIUM', name: 'Vehicle Three', spec: 'Placeholder · 4–5 passengers · luggage', image: '/images/vehicle-3.svg' },
+];
+
+const testimonials = [
+  { quote: '“Placeholder review — replace with a real Google or Instagram review.”', person: 'Client Name', meta: 'Private client · Manchester' },
+  { quote: '“Placeholder review — ideal for the confident, polished tone you want to establish.”', person: 'Client Name', meta: 'Business traveller · Greater Manchester' },
+  { quote: '“Placeholder review — keep authentic reviews short, specific and outcome-focused.”', person: 'Client Name', meta: 'Airport transfer · Manchester' },
+];
+
+const localBusinessJson = {
+  '@context': 'https://schema.org',
+  '@type': 'TaxiService',
+  name: 'Smart Drive 24/7',
+  description: 'Manchester-based executive chauffeur and private hire service specialising in airport transfers, events and executive travel.',
+  url: 'https://smartdrive247.co.uk',
+  telephone: '+447762253656',
+  areaServed: ['Manchester', 'Greater Manchester', 'Manchester Airport'],
+  sameAs: [instagram],
+  openingHours: 'Mo-Su 00:00-24:00',
+  priceRange: '££',
+};
+---
+<BaseLayout>
+  <Fragment slot="head">
+    <link rel="canonical" href="https://smartdrive247.co.uk/" />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessJson)} />
+  </Fragment>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Smart Drive 24/7 home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>SMART DRIVE <strong>24/7</strong></span>
+      </a>
+      <nav aria-label="Primary navigation" class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#why-us">Why us</a>
+        <a href="#fleet">Fleet</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#quote">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href={instagram} target="_blank" rel="noreferrer" class="instagram" aria-label="Smart Drive 24/7 on Instagram">Instagram</a>
+        <a href={sms} class="cta cta-small">Text 07762 253 656</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="top" class="hero section-dark">
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-glow"></div>
+        <div class="car-placeholder"><span>PLACEHOLDER<br />HERO CAR PHOTO</span></div>
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Manchester · Greater Manchester · 24/7</p>
+          <h1>Manchester’s executive transfer service.</h1>
+          <p class="hero-lede">Smart car. Smart driver. Smart price.</p>
+          <p class="hero-body">Executive-standard travel for airport runs, private hire, events and everyday journeys — discreet, dependable and designed around your schedule.</p>
+          <div class="hero-actions">
+            <a href={sms} class="cta">Text {phone} for a speedy quote <span aria-hidden="true">↗</span></a>
+            <a href={tel} class="phone-link"><span>Call</span> {phone}</a>
+          </div>
+          <div class="hero-proof"><span class="proof-line"></span><span>Professional service · Clear pricing · 24/7 availability</span></div>
+        </div>
+        <div class="hero-card">
+          <div><span class="card-label">FASTEST OPTION</span><strong>Text for a quote</strong><p>Tell us pickup, destination, date and time. We’ll get back to you as quickly as possible.</p></div>
+          <a href={sms} class="card-arrow" aria-label="Text Smart Drive 24/7 for a quote">↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-surface">
+      <div class="container">
+        <div class="section-heading split-heading">
+          <div><p class="eyebrow">The service</p><h2>Travel that feels <em>sorted.</em></h2></div>
+          <p>From a 4am airport collection to a late finish after an event, Smart Drive 24/7 keeps the experience calm, polished and simple.</p>
+        </div>
+        <div class="service-grid">
+          {services.map((service) => (
+            <article class="service-card">
+              <span class="service-number">{service.number}</span>
+              <div class="service-icon" aria-hidden="true">↗</div>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+              <a href="#quote" class="text-link">Get a quote <span>↗</span></a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section section-dark">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Why Smart Drive 24/7</p><h2>Premium without the <em>show.</em></h2><p>Executive-standard service with a grounded Manchester approach. The detail matters, but the experience should still feel easy.</p></div>
+        <div class="trust-grid">
+          {trust.map(([number, title, text]) => (
+            <article class="trust-item"><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="airport" class="section airport-section">
+      <div class="container airport-grid">
+        <div class="airport-visual"><div class="airport-overlay"><span class="eyebrow">Manchester Airport</span><strong>Arrive relaxed.<br />Leave on time.</strong><span class="visual-note">PLACEHOLDER IMAGE — swap for airport/chauffeur photography</span></div></div>
+        <div class="airport-copy">
+          <p class="eyebrow">Airport transfers</p>
+          <h2>Manchester Airport, handled <em>properly.</em></h2>
+          <p>Airport travel has enough moving parts. We keep the ground journey straightforward with planned pickup details, clear communication and a smart, comfortable vehicle.</p>
+          <div class="airport-points"><div><strong>Flight-aware planning</strong><span>Placeholder copy for flight tracking / schedule monitoring workflow.</span></div><div><strong>Meet & greet</strong><span>Placeholder copy for your exact arrival meeting process.</span></div><div><strong>Greater Manchester coverage</strong><span>Manchester Airport to the city, suburbs and surrounding areas.</span></div></div>
+          <a href={sms} class="cta">Text for a speedy quote <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="fleet" class="section section-surface">
+      <div class="container">
+        <div class="section-heading split-heading"><div><p class="eyebrow">The fleet</p><h2>Smart cars, <em>properly presented.</em></h2></div><p>Placeholder fleet showcase. Swap these illustrations for your real vehicle photography and exact specifications.</p></div>
+        <div class="fleet-grid">
+          {fleet.map((car) => (
+            <article class="fleet-card"><div class="fleet-image"><img src={car.image} alt={`${car.name} placeholder`} loading="lazy" width="900" height="600" /></div><div class="fleet-meta"><span>{car.tag}</span><h3>{car.name}</h3><p>{car.spec}</p></div></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews" class="section reviews-section">
+      <div class="container">
+        <div class="section-heading split-heading"><div><p class="eyebrow">Client words</p><h2>Built on repeat <em>trust.</em></h2></div><p>Testimonials are structured as an easy-to-swap array in the page source. Replace the placeholders with verified Google or Instagram reviews.</p></div>
+        <div class="reviews-grid">
+          {testimonials.map((review) => (
+            <figure class="review-card"><div class="stars" aria-label="Five stars">★★★★★</div><blockquote>{review.quote}</blockquote><figcaption><strong>{review.person}</strong><span>{review.meta}</span></figcaption></figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="quote" class="section quote-section">
+      <div class="container quote-grid">
+        <div class="quote-copy"><p class="eyebrow">Get a quote</p><h2>Tell us where you’re going.</h2><p>For the fastest response, text <a href={sms}>{phone}</a>. Prefer to plan by form? Send the details below and we’ll come back to you.</p><a href={instagram} target="_blank" rel="noreferrer" class="instagram-link">Follow @smartdrive247 on Instagram ↗</a><div class="quote-contact"><span>Available 24/7</span><span>Manchester & Greater Manchester</span><span>Manchester Airport runs</span></div></div>
+        <form id="quote-form" class="quote-form" action="/api/quote" method="post">
+          <div class="form-row"><label>Full name<input name="name" autocomplete="name" required placeholder="Your name" /></label><label>Mobile number<input name="phone" type="tel" autocomplete="tel" required placeholder="07xxx xxx xxx" /></label></div>
+          <div class="form-row"><label>Pickup<input name="pickup" required placeholder="Pickup location" /></label><label>Drop-off<input name="dropoff" required placeholder="Destination" /></label></div>
+          <div class="form-row"><label>Date<input name="date" type="date" required /></label><label>Time<input name="time" type="time" required /></label></div>
+          <label>Notes<textarea name="notes" rows="4" placeholder="Flight number, passengers, luggage, event details…"></textarea></label>
+          <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-theme="dark" aria-label="Spam protection"></div>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" class="honeypot" aria-hidden="true" />
+          <button class="cta form-submit" type="submit">Request a speedy quote <span>↗</span></button>
+          <p class="form-status" aria-live="polite"></p>
+          <p class="form-note">By submitting this form, you’re asking Smart Drive 24/7 to contact you about your journey. Replace this placeholder privacy wording with your final policy before launch.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a href="#top" class="brand"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>SMART DRIVE <strong>24/7</strong></span></a><p class="footer-tag">Executive travel, without the fuss.</p></div>
+      <div><span class="footer-label">Contact</span><a href={sms}>Text {phone}</a><a href={tel}>Call {phone}</a><a href={instagram} target="_blank" rel="noreferrer">Instagram @smartdrive247</a></div>
+      <div><span class="footer-label">Service area</span><span>Manchester</span><span>Greater Manchester</span><span>Manchester Airport & surrounding areas</span></div>
+      <div><span class="footer-label">Hours</span><span>24 hours · 7 days</span><span>Enquiries welcomed around the clock</span></div>
+    </div>
+    <div class="container footer-bottom"><span>© {new Date().getFullYear()} Smart Drive 24/7. All rights reserved.</span><span>PLACEHOLDER: Add company / licence details.</span></div>
+  </footer>
+
+  <script is:inline>
+    const form = document.querySelector('#quote-form');
+    const status = document.querySelector('.form-status');
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const button = form.querySelector('button');
+      button.disabled = true;
+      status.textContent = 'Sending your enquiry…';
+      try {
+        const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Unable to send your enquiry.');
+        form.reset();
+        status.textContent = 'Thanks — your quote request has been sent. We’ll be in touch shortly.';
+      } catch (error) {
+        status.textContent = error.message || 'Something went wrong. Please text 07762 253 656 for the fastest response.';
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+  <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</BaseLayout>
+<style>
+  .site-header{position:fixed;z-index:80;top:0;left:0;right:0;background:rgba(10,12,14,.78);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px)}
+  .header-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:1.25rem}.brand{display:inline-flex;align-items:center;gap:.7rem;font:800 .9rem 'Manrope',sans-serif;letter-spacing:.08em}.brand strong{color:var(--accent);font-weight:800}.brand-mark{display:flex;align-items:flex-end;gap:2px;width:20px;height:18px}.brand-mark span{display:block;background:var(--accent);border-radius:2px;width:4px}.brand-mark span:nth-child(1){height:9px}.brand-mark span:nth-child(2){height:14px}.brand-mark span:nth-child(3){height:18px}.nav-links{display:flex;gap:1.4rem;color:#bfc4c9;font-size:.83rem}.nav-links a:hover,.footer-grid a:hover,.instagram:hover{color:var(--text)}.header-actions{display:flex;align-items:center;gap:.9rem}.instagram{color:#bfc4c9;font-size:.8rem}.cta{display:inline-flex;align-items:center;justify-content:center;gap:.8rem;padding:1rem 1.25rem;border-radius:999px;background:var(--accent);color:#121313;font-weight:800;letter-spacing:-.01em;transition:transform .2s ease,background .2s ease}.cta:hover{transform:translateY(-2px);background:var(--accent-soft)}.cta span{font-size:1.05em}.cta-small{padding:.7rem 1rem;font-size:.78rem}
+  .section{padding:7.5rem 0}.section-dark{background:var(--bg)}.section-surface{background:var(--bg-soft)}.eyebrow{margin:0 0 1.1rem;text-transform:uppercase;letter-spacing:.18em;font-size:.68rem;font-weight:700;color:var(--accent)}.section-heading{max-width:720px;margin-bottom:3rem}.section-heading h2{margin:.1rem 0 1rem;font-size:clamp(2.4rem,5vw,4.8rem);line-height:.98}.section-heading h2 em,.hero-copy h1 em{font-family:'DM Sans',sans-serif;font-style:normal;color:var(--accent)}.section-heading>p{margin:0;color:var(--muted);font-size:1rem;line-height:1.7}.split-heading{display:grid;grid-template-columns:1fr .72fr;gap:3rem;align-items:end;max-width:none}
+  .hero{position:relative;min-height:760px;padding:9rem 0 6rem;overflow:hidden}.hero-art{position:absolute;inset:0}.hero-glow{position:absolute;inset:-20%;background:radial-gradient(circle at 72% 48%,rgba(184,162,119,.18),transparent 24%),radial-gradient(circle at 50% 55%,rgba(255,255,255,.04),transparent 44%)}.car-placeholder{position:absolute;right:-10%;bottom:3%;width:min(65vw,900px);height:78%;border:1px solid rgba(255,255,255,.07);background:linear-gradient(135deg,rgba(255,255,255,.04),rgba(255,255,255,.01));transform:skewX(-8deg);display:grid;place-items:center}.car-placeholder:before{content:'';position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle at 50% 45%,rgba(184,162,119,.16),transparent 50%)}.car-placeholder span{font:700 .7rem 'Manrope',sans-serif;letter-spacing:.16em;color:#6b737a;text-align:center;z-index:1}.hero:after{content:'';position:absolute;inset:auto 0 0;height:42%;background:linear-gradient(180deg,transparent,var(--bg));pointer-events:none}.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 360px;align-items:end;gap:4rem;min-height:600px}.hero-copy{max-width:720px}.hero-copy h1{font-size:clamp(3.3rem,7vw,7rem);line-height:.9;margin:.2rem 0 1.2rem;max-width:850px}.hero-lede{font:700 1.25rem 'Manrope',sans-serif;margin:.5rem 0;color:#eceae5}.hero-body{font-size:1rem;line-height:1.75;color:#aab0b5;max-width:590px}.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:1rem;margin:2rem 0}.phone-link{color:#dedbd4;font-weight:700}.phone-link span{color:#858b91;font-weight:500;margin-right:.25rem}.hero-proof{display:flex;align-items:center;gap:.7rem;color:#7d858c;font-size:.72rem}.proof-line{width:42px;height:1px;background:var(--accent)}.hero-card{padding:1.3rem 1.3rem 1.25rem;border:1px solid rgba(255,255,255,.1);background:rgba(18,21,24,.72);backdrop-filter:blur(12px);border-radius:1rem;display:flex;justify-content:space-between;gap:1rem}.hero-card strong{display:block;font:700 1.15rem 'Manrope',sans-serif;margin:.35rem 0}.hero-card p{margin:0;color:#929aa1;font-size:.85rem;line-height:1.6}.card-label{display:block;color:var(--accent);font:700 .62rem 'DM Sans',sans-serif;letter-spacing:.16em}.card-arrow{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;flex:none}
+  .service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.service-card{min-height:350px;padding:1.5rem;background:var(--bg-soft);position:relative;transition:transform .2s ease,background .2s ease}.service-card:hover{transform:translateY(-5px);background:#14181b}.service-number{color:#626970;font:600 .65rem 'Manrope',sans-serif;letter-spacing:.14em}.service-icon{position:absolute;right:1.3rem;top:1.3rem;color:var(--accent)}.service-card h3{font-size:1.45rem;margin:6rem 0 .8rem}.service-card p{color:var(--muted);line-height:1.65;font-size:.9rem}.text-link{display:inline-flex;gap:.6rem;margin-top:1.1rem;font-size:.8rem;font-weight:700;color:#ddd7ca}
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.trust-item{background:var(--bg);padding:1.6rem;display:grid;grid-template-columns:40px 1fr;gap:1rem;min-height:170px}.trust-item>span{color:var(--accent);font:700 .7rem 'Manrope',sans-serif}.trust-item h3{font-size:1.08rem;margin:0 0 .55rem}.trust-item p{margin:0;color:var(--muted);line-height:1.65;font-size:.86rem}
+  .airport-section{background:linear-gradient(180deg,#111416,#0d1012)}.airport-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:center}.airport-visual{min-height:590px;border:1px solid var(--line);position:relative;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(184,162,119,.18),transparent 18%),linear-gradient(145deg,#252c31,#0b0d0f)}.airport-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(7,9,11,.96) 88%)}.airport-overlay{position:absolute;z-index:1;inset:auto 2rem 2rem;display:grid;gap:.65rem}.airport-overlay strong{font-size:clamp(2rem,4vw,4rem);line-height:.94}.visual-note{color:#727a81;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}.airport-copy h2{font-size:clamp(2.5rem,5vw,4.6rem);line-height:1;margin:0 0 1.3rem}.airport-copy>p{color:var(--muted);line-height:1.75;max-width:570px}.airport-points{display:grid;gap:.8rem;margin:2rem 0}.airport-points>div{display:grid;grid-template-columns:180px 1fr;gap:1rem;padding:.9rem 0;border-top:1px solid var(--line)}.airport-points strong{font-size:.85rem}.airport-points span{color:#8f969c;font-size:.82rem;line-height:1.55}
+  .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.fleet-card{background:#121619;border:1px solid var(--line)}.fleet-image{aspect-ratio:1.45;overflow:hidden;background:#161b1f}.fleet-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}.fleet-card:hover img{transform:scale(1.03)}.fleet-meta{padding:1.2rem 1.2rem 1.5rem}.fleet-meta span{color:var(--accent);font-size:.64rem;font-weight:800;letter-spacing:.14em}.fleet-meta h3{font-size:1.3rem;margin:.45rem 0}.fleet-meta p{margin:0;color:#818990;font-size:.82rem}
+  .reviews-section{background:var(--bg-soft)}.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.review-card{margin:0;background:#121619;border:1px solid var(--line);padding:1.5rem;min-height:290px;display:flex;flex-direction:column;justify-content:space-between}.stars{letter-spacing:.16em;color:var(--accent);font-size:.8rem}.review-card blockquote{margin:2rem 0;font:600 1.15rem/1.5 'Manrope',sans-serif}.review-card figcaption{display:grid;gap:.15rem}.review-card figcaption strong{font-size:.83rem}.review-card figcaption span{font-size:.72rem;color:#737b82}
+  .quote-section{background:#0b0d0f}.quote-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:5rem;align-items:start}.quote-copy h2{font-size:clamp(2.7rem,5vw,5rem);line-height:.95;margin:0 0 1.2rem}.quote-copy>p{max-width:480px;color:#9aa1a7;line-height:1.75}.quote-copy a{color:#d8c599}.instagram-link{display:inline-block;margin-top:1rem;font-size:.85rem;font-weight:700}.quote-contact{display:grid;gap:.65rem;margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--line);color:#848c93;font-size:.78rem}.quote-form{background:#121619;border:1px solid var(--line);padding:1.4rem}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.quote-form label{display:grid;gap:.45rem;margin-bottom:1rem;font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:#92999f}.quote-form input,.quote-form textarea{width:100%;border:1px solid rgba(255,255,255,.1);background:#0d1012;color:var(--text);padding:.85rem .9rem;border-radius:.6rem;outline:none;text-transform:none;letter-spacing:normal}.quote-form input:focus,.quote-form textarea:focus{border-color:rgba(184,162,119,.7);box-shadow:0 0 0 2px rgba(184,162,119,.1)}.honeypot{display:none!important}.form-submit{border:none;cursor:pointer;width:100%}.form-submit:disabled{opacity:.6;cursor:wait}.form-status{min-height:1.3rem;color:#d7cfbd;font-size:.8rem;line-height:1.5}.form-note{margin:0;color:#626a71;font-size:.65rem;line-height:1.5}.cf-turnstile{margin:0 0 .9rem}
+  .site-footer{border-top:1px solid var(--line);background:#090b0d;padding:4rem 0 1.4rem}.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem}.footer-grid>div{display:grid;align-content:start;gap:.45rem}.footer-tag{color:#7b8389;font-size:.82rem;margin:1rem 0 0}.footer-label{color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-size:.62rem;font-weight:800;margin-bottom:.4rem}.footer-grid a,.footer-grid span:not(.footer-label){font-size:.76rem;color:#959ca2;line-height:1.5}.footer-bottom{margin-top:3.2rem;padding-top:1rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;color:#555d63;font-size:.65rem}
+  @media(max-width:1000px){.nav-links{display:none}.hero-grid{grid-template-columns:1fr}.hero-card{max-width:430px}.service-grid{grid-template-columns:repeat(2,1fr)}.trust-grid{grid-template-columns:repeat(2,1fr)}.airport-grid,.quote-grid{grid-template-columns:1fr}.airport-visual{min-height:440px}.fleet-grid,.reviews-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.site-header{position:fixed}.header-inner{height:67px}.header-actions .instagram{display:none}.cta-small{font-size:.68rem;padding:.65rem .75rem}.brand{font-size:.72rem}.section{padding:5.6rem 0}.split-heading{grid-template-columns:1fr;gap:1rem}.hero{min-height:760px;padding-top:7.6rem}.hero-grid{min-height:620px}.hero-copy h1{font-size:clamp(3rem,14vw,4.5rem)}.hero-card{margin-top:2rem}.service-grid,.trust-grid{grid-template-columns:1fr}.service-card{min-height:290px}.airport-points>div{grid-template-columns:1fr}.form-row{grid-template-columns:1fr;gap:0}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:.5rem}.car-placeholder{right:-35%;width:105vw;height:58%;bottom:8%}}
+</style>
