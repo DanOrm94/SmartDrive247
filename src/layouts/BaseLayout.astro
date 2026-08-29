@@ -1,0 +1,76 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = 'Smart Drive 24/7 | Executive Chauffeur Manchester',
+  description = 'Executive chauffeur and private hire in Manchester. Airport transfers, events and discreet executive travel. Text 07762 253 656 for a speedy quote.',
+  image = '/images/og-placeholder.svg',
+} = Astro.props;
+
+const phone = '07762 253 656';
+const instagram = 'https://www.instagram.com/smartdrive247/';
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b0d0f" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.site?.toString()} />
+    <meta property="og:image" content={new URL(image, Astro.site ?? Astro.url).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site ?? Astro.url).toString()} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <slot />
+    <div class="mobile-cta" aria-label="Quick contact options">
+      <a href={`sms:${phone.replace(/\s/g, '')}`}>Text for a quote</a>
+      <a href={`tel:${phone.replace(/\s/g, '')}`} class="mobile-cta-secondary">Call</a>
+    </div>
+  </body>
+</html>
+<style is:global>
+  :root {
+    --bg: #0b0d0f;
+    --bg-soft: #101316;
+    --panel: #15191d;
+    --text: #f5f3ee;
+    --muted: #a7adb4;
+    --line: rgba(255,255,255,.09);
+    --accent: #b8a277;
+    --accent-soft: #d1bd90;
+    --max: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: var(--bg); }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; }
+  h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; letter-spacing: -.035em; }
+  a { color: inherit; text-decoration: none; }
+  button, input, textarea { font: inherit; }
+  .skip-link { position: fixed; left: 1rem; top: -5rem; z-index: 100; padding: .75rem 1rem; background: var(--accent); color: #101010; border-radius: .5rem; }
+  .skip-link:focus { top: 1rem; }
+  .container { width: min(calc(100% - 2rem), var(--max)); margin-inline: auto; }
+  .mobile-cta { display: none; }
+  @media (max-width: 760px) {
+    body { padding-bottom: 4.65rem; }
+    .mobile-cta { position: fixed; z-index: 90; display: grid; grid-template-columns: 1.55fr .75fr; gap: .55rem; left: .65rem; right: .65rem; bottom: .65rem; padding: .55rem; background: rgba(13,16,19,.93); border: 1px solid var(--line); border-radius: 1rem; box-shadow: 0 15px 45px rgba(0,0,0,.45); backdrop-filter: blur(14px); }
+    .mobile-cta a { display: flex; align-items: center; justify-content: center; min-height: 3rem; border-radius: .7rem; background: var(--accent); color: #111; font-weight: 800; }
+    .mobile-cta-secondary { background: transparent !important; color: var(--text) !important; border: 1px solid var(--line); }
+  }
+</style>
