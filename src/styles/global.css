@@ -2,7 +2,7 @@
 
 /* Use the supplied Smart Drive logo in the hero visual. */
 .car-placeholder {
-  background-image: linear-gradient(rgba(8, 10, 12, 0.08), rgba(8, 10, 12, 0.18)), url('https://raw.githubusercontent.com/DanOrm94/SmartDrive247/main/src/smartdrivelogo.jpg');
+  background-image: linear-gradient(rgba(8, 10, 12, 0.08), rgba(8, 10, 12, 0.18)), url('/images/smartdrivelogo.jpg');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
