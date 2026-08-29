@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+/* Smart Drive 24/7 logo treatment for the hero visual placeholder. */
+.car-placeholder {
+  background-image: linear-gradient(rgba(8, 10, 12, 0.08), rgba(8, 10, 12, 0.18)), url('/smartdrivelogo.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0b0d0f;
+}
+
+.car-placeholder span {
+  display: none;
+}
