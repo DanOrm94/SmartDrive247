@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
-/* Use the supplied Smart Drive logo in the hero visual. */
+/* Supplied Smart Drive logo — !important prevents the hero component's scoped background shorthand from replacing the image. */
 .car-placeholder {
-  background-image: linear-gradient(rgba(8, 10, 12, 0.08), rgba(8, 10, 12, 0.18)), url('/images/smartdrivelogo.jpg');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #0b0d0f;
+  background-image: linear-gradient(rgba(8, 10, 12, 0.08), rgba(8, 10, 12, 0.18)), url('/images/smartdrivelogo.jpg') !important;
+  background-size: contain !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-color: #0b0d0f !important;
 }
 
 .car-placeholder span {
-  display: none;
+  display: none !important;
 }
