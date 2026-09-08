@@ -12,7 +12,7 @@ Premium Manchester chauffeur, executive travel, event and airport transfer websi
 
 ## Local development
 
-Requirements: Node.js 20+ and npm.
+Requirements: Node.js 22+ and npm.
 
 ```bash
 npm install
@@ -42,7 +42,9 @@ Connect this GitHub repository to Cloudflare Pages and configure:
 - Build command: `npm run build`
 - Build output directory: `dist`
 - Production branch: `main`
-- Node.js: `20` or newer
+- Node.js: `22` or newer
+
+The Cloudflare Pages project name controls the `*.pages.dev` hostname. If you want `smartdrive247.pages.dev`, create/use a Pages project named `smartdrive247` and connect it to this repository.
 
 Add these production variables/secrets in Pages → Settings → Variables and Secrets:
 
