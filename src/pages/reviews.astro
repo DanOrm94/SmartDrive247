@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const reviews = [
+  ['Airport transfer', '“Placeholder review — professional, punctual and easy to deal with from booking through to the airport.”', 'Client name'],
+  ['Executive travel', '“Placeholder review — a calm, reliable service that made a busy day much easier.”', 'Client name'],
+  ['Special occasion', '“Placeholder review — exactly the standard of service we wanted for an important event.”', 'Client name'],
+];
+---
+<BaseLayout title="Client Reviews"><section class="container-shell py-16 sm:py-20"><p class="eyebrow">Reviews</p><h1 class="heading-xl mt-4 max-w-4xl">The service should speak for itself.</h1><p class="mt-6 max-w-2xl text-lg leading-7 text-white/55">This section is styled and ready for verified client feedback. Replace the placeholders below with real reviews, names and dates.</p><div class="mt-12 grid gap-5 md:grid-cols-3">{reviews.map(([type, quote, name])=><article class="card p-7"><p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">{type}</p><p class="mt-6 text-lg leading-8 text-white/75">{quote}</p><div class="mt-7 border-t border-white/10 pt-4 text-xs text-white/40">{name} · Review placeholder</div></article>)}</div><div class="mt-10 card p-7 sm:p-9"><p class="text-sm text-white/50">Want to add a review platform widget later?</p><p class="mt-2 text-sm leading-6 text-white/40">Keep this page as the owned testimonial layer, with verified Google / Trustpilot links or an embed added once the preferred platform is confirmed.</p></div></section></BaseLayout>
