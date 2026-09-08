@@ -1,0 +1,30 @@
+---
+const links = [
+  ['/', 'Home'],
+  ['/services', 'Services'],
+  ['/fleet', 'Fleet'],
+  ['/about', 'About'],
+  ['/reviews', 'Reviews'],
+  ['/booking', 'Booking']
+];
+---
+<header class="sticky top-0 z-50 border-b border-white/10 bg-charcoal/90 backdrop-blur-lg">
+  <div class="container-shell flex min-h-18 items-center justify-between gap-4 py-4">
+    <a href="/" class="flex items-center gap-3" aria-label="SmartDrive247 home">
+      <span class="flex h-10 w-10 items-center justify-center rounded-xl border border-gold/40 text-sm font-bold text-gold">SD</span>
+      <span class="leading-tight"><span class="block text-sm font-bold tracking-wide">SMARTDRIVE247</span><span class="block text-[10px] uppercase tracking-[0.2em] text-white/45">Executive Chauffeur</span></span>
+    </a>
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
+      {links.map(([href, label]) => <a href={href} class="text-sm text-white/70 transition hover:text-white">{label}</a>)}
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="tel:[PHONE]" class="hidden rounded-xl border border-white/10 px-4 py-2.5 text-sm font-semibold text-white/90 transition hover:bg-white/5 sm:inline-flex">Call Now</a>
+      <a href="/booking" class="btn-primary">Book Now</a>
+    </div>
+  </div>
+  <div class="border-t border-white/5 lg:hidden">
+    <nav class="container-shell flex gap-5 overflow-x-auto py-3" aria-label="Mobile navigation">
+      {links.map(([href, label]) => <a href={href} class="shrink-0 text-xs font-medium uppercase tracking-wider text-white/55 hover:text-white">{label}</a>)}
+    </nav>
+  </div>
+</header>
