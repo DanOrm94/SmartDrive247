@@ -57,7 +57,7 @@ Astro's Cloudflare adapter outputs the deployment bundle needed by Pages. Cloudf
 
 ## Branding placeholders
 
-Replace `[PHONE]`, `[EMAIL]`, `[INSTAGRAM]` and `[LOGO]` with final business details/assets. Fleet sections use image placeholders so real vehicle photography can be added later without redesigning the page.
+Replace `[PHONE]`, `[EMAIL]`, `[INSTAGRAM]` and `[LOGO]` with final business details/assets. The website is designed around the operator's single vehicle, so vehicle photography can be added to the relevant service/about content without a separate fleet page.
 
 ## Production checklist
 
