@@ -1,0 +1,22 @@
+---
+const compact = Astro.props.compact ?? false;
+---
+<form action="/api/booking" method="POST" class={`card p-5 sm:p-7 ${compact ? '' : 'lg:p-8'}`}>
+  <input type="hidden" name="source" value={Astro.url.pathname} />
+  <div class="mb-6"><p class="eyebrow">Request a quote</p><h2 class="mt-2 text-2xl font-semibold">Tell us about your journey</h2><p class="mt-2 text-sm leading-6 text-white/50">We’ll review your request and come back with availability and a tailored quote.</p></div>
+  <div class="grid gap-4 sm:grid-cols-2">
+    <label class="text-sm text-white/70">Pickup location<input class="input mt-2" name="pickup" required autocomplete="street-address" placeholder="e.g. Manchester Airport T2" /></label>
+    <label class="text-sm text-white/70">Drop-off location<input class="input mt-2" name="dropoff" required autocomplete="street-address" placeholder="e.g. Manchester city centre" /></label>
+    <label class="text-sm text-white/70">Date<input class="input mt-2" type="date" name="date" required /></label>
+    <label class="text-sm text-white/70">Time<input class="input mt-2" type="time" name="time" required /></label>
+    <label class="text-sm text-white/70">Passengers<select class="input mt-2" name="passengers"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></label>
+    <label class="text-sm text-white/70">Luggage<select class="input mt-2" name="luggage"><option>None / hand luggage</option><option>1–2 cases</option><option>3–4 cases</option><option>5+ cases</option></select></label>
+    <label class="text-sm text-white/70">Name<input class="input mt-2" name="name" required autocomplete="name" placeholder="Your name" /></label>
+    <label class="text-sm text-white/70">Phone<input class="input mt-2" type="tel" name="phone" required autocomplete="tel" placeholder="[PHONE]" /></label>
+    <label class="text-sm text-white/70 sm:col-span-2">Email<input class="input mt-2" type="email" name="email" required autocomplete="email" placeholder="[EMAIL]" /></label>
+    <label class="text-sm text-white/70 sm:col-span-2">Special requests<textarea class="input mt-2 min-h-28 resize-y" name="specialRequests" placeholder="Flight number, child seat, accessibility needs, event details…"></textarea></label>
+    <div class="sm:col-span-2"><div class="min-h-12 rounded-xl border border-dashed border-white/10 bg-black/10 px-4 py-3 text-xs text-white/45">Turnstile protection will appear here once <code class="text-white/65">PUBLIC_TURNSTILE_SITE_KEY</code> is configured.</div><input type="hidden" name="turnstileToken" value="" aria-label="Turnstile token placeholder" /></div>
+  </div>
+  <button class="btn-primary mt-6 w-full sm:w-auto" type="submit">Request my quote</button>
+  <p class="mt-3 text-xs leading-5 text-white/35">By submitting, you’re asking SmartDrive247 to contact you about this journey. Please don’t include sensitive information.</p>
+</form>

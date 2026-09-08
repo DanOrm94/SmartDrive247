@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-charcoal: #0C0D0F;
+  --color-graphite: #15171A;
+  --color-panel: #1B1E22;
+  --color-gold: #C7A56A;
+  --color-gold-soft: #E1C791;
+  --color-mist: #B8BDC6;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: 0 20px 60px rgba(0,0,0,.28);
+}
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body { @apply bg-charcoal text-white font-sans antialiased; }
+::selection { @apply bg-gold text-charcoal; }
+.container-shell { @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10; }
+.eyebrow { @apply text-xs font-semibold uppercase tracking-[0.22em] text-gold; }
+.heading-xl { @apply text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl; }
+.heading-lg { @apply text-3xl font-semibold tracking-tight sm:text-4xl; }
+.card { @apply rounded-2xl border border-white/10 bg-panel/80 shadow-soft; }
+.input { @apply w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white placeholder:text-white/35 outline-none transition focus:border-gold/70 focus:ring-2 focus:ring-gold/20; }
+.btn-primary { @apply inline-flex items-center justify-center rounded-xl bg-gold px-5 py-3 text-sm font-semibold text-charcoal transition hover:bg-gold-soft focus:outline-none focus:ring-2 focus:ring-gold/60 focus:ring-offset-2 focus:ring-offset-charcoal; }
+.btn-secondary { @apply inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40; }
