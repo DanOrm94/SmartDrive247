@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const fleet = [
+  { title:'Executive Saloon', text:'A refined choice for airport, business and point-to-point travel.', image:'[LOGO] / replace with real vehicle photo' },
+  { title:'Executive SUV', text:'Extra space and a strong road presence for longer days or additional luggage.', image:'[LOGO] / replace with real vehicle photo' },
+  { title:'People Carrier', text:'Flexible seating for small groups, events and airport party transfers.', image:'[LOGO] / replace with real vehicle photo' }
+];
+---
+<BaseLayout title="Fleet"><section class="container-shell py-16 sm:py-20"><p class="eyebrow">Fleet</p><h1 class="heading-xl mt-4 max-w-4xl">Comfortable, discreet vehicles for the way you travel.</h1><p class="mt-6 max-w-2xl text-lg leading-7 text-white/55">Swap these placeholders for your own vehicle photography, specifications and seating information as the fleet is finalised.</p><div class="mt-12 grid gap-5 lg:grid-cols-3">{fleet.map(v=><article class="card overflow-hidden"><div class="flex aspect-[4/3] items-end bg-gradient-to-br from-white/10 via-panel to-black p-5"><div class="rounded-lg border border-white/10 bg-black/30 px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-white/45">{v.image}</div></div><div class="p-7"><h2 class="text-xl font-semibold">{v.title}</h2><p class="mt-3 text-sm leading-6 text-white/50">{v.text}</p><a class="mt-6 inline-flex text-sm font-semibold text-gold" href="/booking">Ask about availability →</a></div></article>)}</div></section></BaseLayout>
