@@ -10,9 +10,9 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "latest",
-    "@astrojs/tailwind": "latest",
-    "astro": "latest",
-    "tailwindcss": "latest"
+    "@astrojs/cloudflare": "^14.3.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^7.3.1",
+    "tailwindcss": "^3.4.17"
   }
 }
